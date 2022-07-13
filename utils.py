@@ -1,0 +1,1 @@
+DYNAMO_DB = 'dynamodb'

@@ -1,0 +1,74 @@
+{
+    "members": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "member-uuid",
+                "AttributeType": "S"
+            }
+        ],
+        "KeySchema": [
+            {
+                "AttributeName": "member-uuid",
+                "KeyType": "HASH"
+            }
+        ],
+        "ProvisionedThroughput": {
+            "ReadCapacityUnits": 10,
+            "WriteCapacityUnits": 10
+        }
+    },
+    "members-credential": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "member-uuid",
+                "AttributeType": "S"
+            }
+        ],
+        "KeySchema": [
+            {
+                "AttributeName": "member-uuid",
+                "KeyType": "HASH"
+            }
+        ],
+        "ProvisionedThroughput": {
+            "ReadCapacityUnits": 10,
+            "WriteCapacityUnits": 10
+        }
+    },
+    "rooms": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "room-uuid",
+                "AttributeType": "S"
+            }
+        ],
+        "KeySchema": [
+            {
+                "AttributeName": "room-uuid",
+                "KeyType": "HASH"
+            }
+        ],
+        "ProvisionedThroughput": {
+            "ReadCapacityUnits": 10,
+            "WriteCapacityUnits": 10
+        }
+    },
+    "chats": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "room-uuid",
+                "AttributeType": "S"
+            }
+        ],
+        "KeySchema": [
+            {
+                "AttributeName": "room-uuid",
+                "KeyType": "HASH"
+            }
+        ],
+        "ProvisionedThroughput": {
+            "ReadCapacityUnits": 10,
+            "WriteCapacityUnits": 10
+        }
+    }
+}

@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin
+    ports:
+      - "8001:8001"
+    environment:
+      DYNAMO_ENDPOINT: "http://dynamodb-local:8000"
+      AWS_REGION: ${AWS_REGION}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    depends_on:
+      - dynamodb-local
+
+  # flask-app:
+  #   image:
+  #   build:
+  #     dockerfile: ./Dockerfile.dev
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     DEV: true
+  #   depends_on:
+  #     - dynamodb-local
